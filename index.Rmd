@@ -1,0 +1,42 @@
+---
+title: "Untitled"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(ggplot2)
+library(tidyverse)
+```
+
+Column {data-width=650}
+-----------------------------------------------------------------------
+
+### Chart A
+
+```{r}
+mtcars2 <- mtcars |> rownames_to_column()
+ggplot(mtcars2, aes(x = mpg, y = cyl)) + geom_line(fill = "blue")+ theme_minimal()
+# plot( x = mtcars2$rowname, y = mtcars2$disp, col = "blue",type = "l")
+# plot(mtcars2, x = rowname, y = disp, col = "blue", type = "l")
+
+```
+
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+### Chart B
+
+```{r}
+plot(runif(100), type = "l", col = "blue")
+```
+
+### Chart C
+
+```{r}
+plot(runif(100), type = "p", col = "blue")
+```
+
